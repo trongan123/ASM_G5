@@ -105,10 +105,11 @@ namespace ASMWPF
             {
                 try
                 {
-                    khachHangSevice.AddKhachHang(khachHang());
+                    KhachHang khach = khachHang();
+                    khachHangSevice.AddKhachHang(khach);
 
-                    MessageBox.Show("add new");
-                    HomePageForm Home = new HomePageForm(khachHang());
+                    MessageBox.Show("Register Successfully","Register infor");
+                    HomePageForm Home = new HomePageForm(khach);
                     Home.Show();
                     this.Close();
                 }

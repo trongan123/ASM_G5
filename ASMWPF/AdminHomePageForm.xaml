@@ -8,7 +8,7 @@
         Title="AdminHomePageForm" Height="482" Width="726" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl>
+        <TabControl x:Name="tctAdminHome">
             <TabItem Header="Items" Margin="-2,-2,-35,-15">
                 <Grid Background="White" Height="368">
                     <ListView x:Name="lvMenu" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,-13">
@@ -47,21 +47,28 @@
             </TabItem>
             <TabItem Header="Create" Margin="34,-2,-71,-15">
                 <Grid Background="White" Margin="0,10,0,0">
-                    <Label Content="Name" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-                    <Label Content="Category" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-                    <Label Content="Price" HorizontalAlignment="Left" Margin="40,130,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-                    <Label Content="Note" HorizontalAlignment="Left" Margin="40,180,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-                    <Label Content="Image" HorizontalAlignment="Left" Margin="40,248,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-                    <TextBox x:Name="tbFoodName" HorizontalAlignment="Left" Margin="186,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="16" FontWeight="Bold"/>
-                    <ComboBox  x:Name="cbbLoai" SelectedValue="{Binding Path=TenLoai}"  HorizontalAlignment="Left" Margin="186,85,0,0" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Margin="186,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="16" FontWeight="Bold"/>
-                    <TextBox x:Name="tbNote" HorizontalAlignment="Left" Margin="186,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="16" FontWeight="Bold" Height="42"/>
-                    <Label x:Name="lbNameError" Content="" HorizontalAlignment="Left" Margin="555,35,0,0" VerticalAlignment="Top" Width="111" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14"/>
-                    <Label x:Name="lbPriceError" Content="" HorizontalAlignment="Left" Margin="555,135,0,0" VerticalAlignment="Top" Width="111" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14"/>
-                    <Label x:Name="lbNoteError" Content="" HorizontalAlignment="Left" Margin="555,185,0,0" VerticalAlignment="Top" Width="111" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14"/>
-                    <Button Content="image..." Name="btnOpenFile" Click="btnOpenFile_Click" HorizontalAlignment="Left" Margin="528,255,0,0" VerticalAlignment="Top" Width="60"/>
-                    <Label x:Name="lbImg" Content="Link img display here" HorizontalAlignment="Left" Margin="186,252,0,0" VerticalAlignment="Top" Width="337"/>
-                    <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="286,329,0,0" VerticalAlignment="Top" Height="38" Width="138" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="White" Click="btnCreate_Click" RenderTransformOrigin="0.435,-1.366"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*"/>
+                        <ColumnDefinition Width="683*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="3,30,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <Label Content="Category" HorizontalAlignment="Left" Margin="3,80,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <Label Content="Price" HorizontalAlignment="Left" Margin="3,130,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <Label Content="Note" HorizontalAlignment="Left" Margin="3,180,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <Label Content="Image" HorizontalAlignment="Left" Margin="3,248,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <TextBox x:Name="tbFoodName" HorizontalAlignment="Left" Margin="149,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <ComboBox  x:Name="cbbLoai" SelectedValue="{Binding Path=TenLoai}"  HorizontalAlignment="Left" Margin="149,85,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                    <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Margin="149,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                    <TextBox x:Name="tbNote" HorizontalAlignment="Left" Margin="149,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" FontSize="16" FontWeight="Bold" Height="42" Grid.Column="1"/>
+                    <Label x:Name="lbNameError" Content="" HorizontalAlignment="Left" Margin="518,35,0,0" VerticalAlignment="Top" Width="155" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                    <Label x:Name="lbPriceError" Content="" HorizontalAlignment="Left" Margin="518,135,0,0" VerticalAlignment="Top" Width="155" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                    <Label x:Name="lbCetegoryError" Content="" HorizontalAlignment="Left" Margin="521,76,0,0" VerticalAlignment="Top" Width="162" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                    <Label x:Name="lbImageError" Content="" HorizontalAlignment="Left" Margin="149,295,0,0" VerticalAlignment="Top" Width="337" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+
+                    <Label x:Name="lbNoteError" Content="" HorizontalAlignment="Left" Margin="518,185,0,0" VerticalAlignment="Top" Width="155" Background="{x:Null}" Foreground="Red" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                    <Button Content="image..." Name="btnOpenFile" Click="btnOpenFile_Click" HorizontalAlignment="Left" Margin="491,255,0,0" VerticalAlignment="Top" Width="60" Grid.Column="1"/>
+                    <Label x:Name="lbImg" Content="Link img display here" HorizontalAlignment="Left" Margin="149,252,0,0" VerticalAlignment="Top" Width="337" Grid.Column="1"/>
+                    <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Margin="249,329,0,0" VerticalAlignment="Top" Height="38" Width="138" FontSize="16" FontWeight="Bold" BorderBrush="White" Background="White" Click="btnCreate_Click" RenderTransformOrigin="0.435,-1.366" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Account" Margin="71,-2,-108,-14">
@@ -140,7 +147,7 @@
                                     <TextBlock x:Name="tbThoiGian" Text="{Binding ThoiGian}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <TextBlock x:Name="tbTongTien" Text="{Binding TongTien}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                                    <Button x:Name="btndeleteAcc"  Content="Delete" Width="100" Height="30" Click="btndeleteAcc_Click"/>
+                                    <Button x:Name="btndeleteOrder"  Content="Delete" Width="100" Height="30" Click="btndeleteOrder_Click"/>
 
                                 </UniformGrid>
                             </DataTemplate>

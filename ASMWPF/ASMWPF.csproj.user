@@ -22,22 +22,13 @@
     <Compile Update="HomePageForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoaiForm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="LoginForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Menu.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MenuPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MonAnForm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="RegisterForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateAccForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserForm.xaml.cs">
@@ -60,28 +51,16 @@
     <Page Update="HomePageForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LoaiForm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="LoginForm.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Menu.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MenuPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MonAnForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="OrderForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RegisterForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateAccForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserForm.xaml">

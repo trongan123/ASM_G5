@@ -1,9 +1,9 @@
 ﻿using ASMLibrary.DataAccess;
 using ASMLibrary.Management.Sevice;
 using Ganss.Excel;
-using Microsoft.Office.Interop.Excel;
+
 using Microsoft.Win32;
-using Syncfusion.XlsIO;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,15 +31,17 @@ namespace ASMWPF
         MonAnService monAnService = new MonAnService();
         LoaiService loaiService = new LoaiService();
         KhachHangSevice khachHangSevice = new KhachHangSevice();
-        DonHangService donHangService = new DonHangService(); 
+        DonHangService donHangService = new DonHangService();
+        ChiTietDonHangService chiTietDonHangService = new ChiTietDonHangService();
         List<MonAn> monAns;
         List<Loai> loais;
         List<KhachHang> khachHangs;
         List<DonHang> donHangs;
-        public AdminHomePageForm(KhachHang ad)
+        public AdminHomePageForm(KhachHang ad, int index)
         {
             InitializeComponent();
             admin = ad;
+            tctAdminHome.SelectedIndex = index;
             ClearErrorLabel();
             loaddataMenu();
             loaddataCreate();
@@ -160,22 +162,27 @@ namespace ASMWPF
         bool CheckCreate()
         {
             bool check = true;
-
-            if (tbFoodName.Equals("")){
+            MessageBox.Show("c:"+tbFoodName.Text.Equals(""));
+            if (tbFoodName.Text.Equals("")){
                 lbNameError.Content = "FoodName is Null";
                 check = false;
             }
-            if (tbPrice.Equals("")){
-                lbNameError.Content = "Price is Null";
+            if (tbPrice.Text.Equals("")){
+                lbPriceError.Content = "Price is Null";
                 check = false;
             }
-            if (tbNote.Equals("")){
-                lbNameError.Content = "Note is Null";
+            if (tbNote.Text.Equals("")){
+                lbNoteError.Content = "Note is Null";
                 check = false;
             }
-            if (cbbLoai.SelectedValue.Equals(""))
+            if (cbbLoai.SelectedIndex < 0)
             {
-               // lbNameError.Content = "Note is Null";
+                lbCetegoryError.Content = "Please choice Category";
+                check = false;
+            }
+            if (lbImg.Content.Equals(""))
+            {
+                lbImageError.Content = "Please choice Image";
                 check = false;
             }
             return check;
@@ -209,12 +216,32 @@ namespace ASMWPF
 
         private void btnUpdateAcc_Click(object sender, RoutedEventArgs e)
         {
-            loaddataACC();
+
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Update Account Confirmation", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var rowItem = (sender as Button).DataContext as KhachHang;
+                    KhachHang khach = khachHangSevice.GetKhachHangByID(rowItem.Idkh);
+                     UpdateAccForm updateAccForm = new UpdateAccForm(khach,admin);
+            updateAccForm.Show();
+            this.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+           
+         //   loaddataACC();
         }
 
         private void btndeleteAcc_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Delete food Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Delete Account Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 try
@@ -253,6 +280,7 @@ namespace ASMWPF
         {
             try
             {
+                
                 ExcelMapper mapper = new ExcelMapper();
                 var location = @"AccountFile.xlsx";
                 mapper.Save(location, khachHangs, "SheetName", true);
@@ -260,6 +288,34 @@ namespace ASMWPF
             }
             catch (Exception ex) { MessageBox.Show("Failed"); }
         }
+
+        private void btndeleteOrder_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure?", "Delete Order Confirmation", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var rowItem = (sender as Button).DataContext as dataDonHang;
+                    DonHang don = donHangService.GetDonHangByID(rowItem.IddonHang);
+                    if (don != null)
+                    {
+                        donHangService.DeleteDonHang(don);
+                    }
+                    loaddataDonHang();
+                    MessageBox.Show("Delete Order Success!!", "Delete Order Confirmation");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+        }
+
+      
+
     }
     public class dataDonHang
     {

@@ -170,6 +170,19 @@ namespace ASMWPF
                 this.Close();
             }
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            List<FoodData> foods = new List<FoodData>();
+            monAnList = monAnService.SearchMonAnByName(txtSearch.Text).ToList();
+            foreach (MonAn mon in monAnList)
+            {
+                foods.Add(new FoodData { Id = mon.Idmon, Price = "Giá :" + mon.DonGia, Title = mon.TenMon, ImageData = LoadImage(mon.Hinh) });
+            }
+            tctmenu.SelectedIndex = 0;
+            this.lvMenu.ItemsSource = foods;
+
+        }
     }
     public class FoodData
     {
