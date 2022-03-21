@@ -78,24 +78,20 @@ namespace ASMWPF
         {
             bool check = true;
 
-            if (tbFoodName.Equals(""))
+           
+            if (tbFoodName.Text.Equals(""))
             {
                 lbNameError.Content = "FoodName is Null";
                 check = false;
             }
-            if (tbPrice.Equals(""))
+            if (tbPrice.Text.Equals(""))
             {
-                lbNameError.Content = "Price is Null";
+                lbPriceError.Content = "Price is Null";
                 check = false;
             }
-            if (tbNote.Equals(""))
+            if (tbNote.Text.Equals(""))
             {
-                lbNameError.Content = "Note is Null";
-                check = false;
-            }
-            if (cbbloai.SelectedValue.Equals(""))
-            {
-                // lbNameError.Content = "Note is Null";
+                lbNoteError.Content = "Note is Null";
                 check = false;
             }
             return check;
@@ -116,7 +112,7 @@ namespace ASMWPF
                 monAnService.UpdateMonAn(monAn);
 
                 MessageBox.Show("thanh cong");
-                AdminHomePageForm adminHome = new AdminHomePageForm(admin);
+                AdminHomePageForm adminHome = new AdminHomePageForm(admin,0);
                 adminHome.Show();
                 this.Close();
             }
@@ -125,7 +121,7 @@ namespace ASMWPF
 
         private void btnback_Click(object sender, RoutedEventArgs e)
         {
-            AdminHomePageForm adminHome = new AdminHomePageForm(admin);
+            AdminHomePageForm adminHome = new AdminHomePageForm(admin,0);
             adminHome.Show();
             this.Close();
         }

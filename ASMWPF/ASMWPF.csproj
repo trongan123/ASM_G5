@@ -21,6 +21,7 @@
     <None Remove="images\note.png" />
     <None Remove="images\plus.png" />
     <None Remove="images\refresh.png" />
+    <None Remove="images\search.png" />
     <None Remove="images\shopping-cart.png" />
     <None Remove="images\shopping-cart_gradient.png" />
     <None Remove="images\user.png" />
@@ -28,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ExcelMapper" Version="5.2.375" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
@@ -49,6 +51,7 @@
     <Resource Include="images\note.png" />
     <Resource Include="images\plus.png" />
     <Resource Include="images\refresh.png" />
+    <Resource Include="images\search.png" />
     <Resource Include="images\shopping-cart.png" />
     <Resource Include="images\shopping-cart_gradient.png" />
     <Resource Include="images\user.png" />
@@ -59,12 +62,6 @@
     <Compile Update="AssemblyInfo.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="Menu.xaml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
   </ItemGroup>
 
 </Project>

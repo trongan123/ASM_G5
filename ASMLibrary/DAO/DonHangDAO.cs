@@ -131,8 +131,9 @@ namespace ASMLibrary.DAO
                 DonHang _donHang = GetDonHangByID(donHang.IddonHang);
                 if (_donHang != null)
                 {
+                    donHang.Tt = 0;
                     var ASMFDB = new ASMFContext();
-                    ASMFDB.DonHangs.Remove(donHang);
+                    ASMFDB.Entry<DonHang>(donHang).State = EntityState.Modified;
                     ASMFDB.SaveChanges();
                 }
                 else

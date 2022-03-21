@@ -70,7 +70,7 @@ namespace ASMWPF
                     try
                     {
                         khachHangSevice.UpdateKhachHang(khachHang);
-                        MessageBox.Show("Update Info Success!!");
+                        MessageBox.Show("Update Info Success!!", "Change Info Confirmation");
                     }
                     catch (Exception)
                     {
@@ -119,14 +119,14 @@ namespace ASMWPF
             lbPasswordError.Content = "";
             lbNewPasswordError.Content = "";
             lbComfirmPassError.Content = "";
-            if (pbPassword.Password.ToString().Equals(khachHang.Password))
+            if (!pbPassword.Password.ToString().Equals(khachHang.Password))
             {
                 lbPasswordError.Content = "Password is Wrong!";
                 check = false;
             }
             if (!Regex.IsMatch(pbNewPassword.Password.ToString(), @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"))
             {
-                lbNewPasswordError.Content = "pass is >8 and have char and number";
+                lbNewPasswordError.Content = "pass is >8,have char and number";
                 check = false;
             }
              if (pbNewPassword.Password.ToString() != pbConfirmPassword.Password.ToString())
@@ -141,7 +141,7 @@ namespace ASMWPF
         private void btnChangePassword_Click(object sender, RoutedEventArgs e)
         {
 
-            if (Checktext())
+            if (CheckChangePass())
             {
                 khachHang.Password = pbNewPassword.Password.ToString();
 

@@ -70,7 +70,7 @@ namespace ASMWPF
 
                 if (khachHang.Role.Equals("Admin") && khachHang.Tt.Equals(1))
                 {
-                    AdminHomePageForm admin = new AdminHomePageForm(khachHang);                
+                    AdminHomePageForm admin = new AdminHomePageForm(khachHang,0);                
                     MessageBox.Show("Welcome admin: " + khachHang.HotenKh);
                     admin.Show();
                     this.Close();
