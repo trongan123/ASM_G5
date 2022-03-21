@@ -149,7 +149,8 @@ namespace ASMWPF
                     var rowItem = (sender as Button).DataContext as MenuItem;
                     monAnService.DeleteMonAn(monAnService.GetMonAnByID(rowItem.Id));
                     loaddataMenu();
-                    MessageBox.Show("Delete Food Success!!");
+                    MessageBox.Show("Delete food Successfully", "Delete food information");
+
                 }
                 catch (Exception)
                 {
@@ -209,7 +210,7 @@ namespace ASMWPF
                     Tt = 1
                 };
                 monAnService.AddMonAn(monAn);
-                MessageBox.Show("thanh cong");
+                MessageBox.Show("Create food Successfully", "Create food information");
                 loaddataMenu();
             }
         }
@@ -253,7 +254,8 @@ namespace ASMWPF
                         khachHangSevice.DeleteKhachHang(khach);
                     }
                     loaddataACC();
-                    MessageBox.Show("Delete Info Success!!");
+                    MessageBox.Show("Delete Account Successfully", "Delete Account information");
+
                 }
                 catch (Exception)
                 {
@@ -271,7 +273,7 @@ namespace ASMWPF
                 ExcelMapper mapper = new ExcelMapper();
                 var location = @"OrderFile.xlsx";
                 mapper.Save(location, donHangs, "SheetName", true);
-                MessageBox.Show("Exported");
+                MessageBox.Show("Exported Order Successfully", "Exported Order information");
             }
             catch (Exception ex) { MessageBox.Show("Failed"); }
         }
@@ -284,7 +286,8 @@ namespace ASMWPF
                 ExcelMapper mapper = new ExcelMapper();
                 var location = @"AccountFile.xlsx";
                 mapper.Save(location, khachHangs, "SheetName", true);
-                MessageBox.Show("Exported");
+                MessageBox.Show("Exported Account Successfully", "Exported Account information");
+
             }
             catch (Exception ex) { MessageBox.Show("Failed"); }
         }

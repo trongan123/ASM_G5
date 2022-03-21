@@ -111,7 +111,7 @@ namespace ASMWPF
                
                 monAnService.UpdateMonAn(monAn);
 
-                MessageBox.Show("thanh cong");
+                MessageBox.Show("Update food Successfully", "Update food information");
                 AdminHomePageForm adminHome = new AdminHomePageForm(admin,0);
                 adminHome.Show();
                 this.Close();

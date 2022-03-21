@@ -71,23 +71,23 @@ namespace ASMWPF
                 if (khachHang.Role.Equals("Admin") && khachHang.Tt.Equals(1))
                 {
                     AdminHomePageForm admin = new AdminHomePageForm(khachHang,0);                
-                    MessageBox.Show("Welcome admin: " + khachHang.HotenKh);
+                    MessageBox.Show("Welcome admin: " + khachHang.HotenKh, "Login");
                     admin.Show();
                     this.Close();
                 }
 
                 if ((khachHang.Role.Equals("User") || khachHang.Role.Equals("Admin")) && khachHang.Tt.Equals(0))
                 {
-                    MessageBox.Show("Sorry but your account has been blocked");
+                    MessageBox.Show("Sorry but your account has been blocked",, "Login");
                 }
             }
             else if (username.Equals("") || password.Equals(""))
             {
-                MessageBox.Show("Null kìa");
+                MessageBox.Show("Username or Password is empty!","Login");
             }
             else if(khachHang == null)
             {
-                MessageBox.Show("Sai òi nha");
+                MessageBox.Show("Username or Password is Wrong!","Login");
             }
         }
     }
