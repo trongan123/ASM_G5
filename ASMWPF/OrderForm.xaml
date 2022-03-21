@@ -14,15 +14,15 @@
         </Grid.RowDefinitions>
         <Label Content="Deliver to:" Margin="10,29,402,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF8C8C8C"/>
         <TextBox x:Name="txtAddress" Margin="10,52,10,280" TextWrapping="Wrap" Text="" BorderBrush="#FFD4D4D4"/>
-        <Button Content="" Margin="10,5,0,0" Foreground="White" BorderBrush="Black" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34">
+        <!--<Button Content="" Margin="10,5,0,0" Foreground="White" BorderBrush="Black" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34">
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/images/arrow.png"/>
                 </ControlTemplate>
             </Button.Template>
-        </Button>
+        </Button>-->
         <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,-71,0,0" Stroke="#FFD8D8D8" VerticalAlignment="Top" Width="554" MouseDown="Rectangle_MouseDown"/>
-        <Label Content="Checkout" Margin="189,0,189,0" FontSize="16" Height="29" VerticalAlignment="Top"/>
+        <Label Content="Order" Margin="189,0,189,0" FontSize="16" Height="29" VerticalAlignment="Top"/>
         <Rectangle HorizontalAlignment="Left" Height="399" Margin="-16,128,0,0" Stroke="White" VerticalAlignment="Top" Width="533" Fill="#FFD8D8D8" Grid.RowSpan="2"/>
         <Rectangle HorizontalAlignment="Center" Height="26" Margin="0,134,0,0" Stroke="White" VerticalAlignment="Top" Width="480" Fill="White"/>
         <Label Content="Your Order:" Margin="8,139,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF8C8C8C" HorizontalAlignment="Left" Width="83"/>

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,6 +88,11 @@ namespace ASMWPF
             if (tbPrice.Text.Equals(""))
             {
                 lbPriceError.Content = "Price is Null";
+                check = false;
+            }
+            else if (!Regex.IsMatch(tbPrice.Text, @"^[\d]"))
+            {
+                lbPriceError.Content = "Price must be number";
                 check = false;
             }
             if (tbNote.Text.Equals(""))

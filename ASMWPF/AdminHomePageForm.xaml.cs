@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -54,6 +55,15 @@ namespace ASMWPF
             lbNameError.Content = "";
             lbNoteError.Content = "";
             lbPriceError.Content = "";
+            lbCetegoryError.Content = "";
+            lbImageError.Content = "";
+            lbImg.Content = "";
+        }
+        void ClearCreate()
+        {
+            tbFoodName.Text = "";
+            tbPrice.Text = "";
+            tbNote.Text = "";
             lbImg.Content = "";
         }
         private void loaddataMenu()
@@ -163,7 +173,6 @@ namespace ASMWPF
         bool CheckCreate()
         {
             bool check = true;
-            MessageBox.Show("c:"+tbFoodName.Text.Equals(""));
             if (tbFoodName.Text.Equals("")){
                 lbNameError.Content = "FoodName is Null";
                 check = false;
@@ -171,7 +180,12 @@ namespace ASMWPF
             if (tbPrice.Text.Equals("")){
                 lbPriceError.Content = "Price is Null";
                 check = false;
+            }else if (!Regex.IsMatch(tbPrice.Text, @"^[\d]"))
+            {
+                lbPriceError.Content = "Price must be number";
+                check = false;
             }
+            
             if (tbNote.Text.Equals("")){
                 lbNoteError.Content = "Note is Null";
                 check = false;
@@ -211,6 +225,7 @@ namespace ASMWPF
                 };
                 monAnService.AddMonAn(monAn);
                 MessageBox.Show("Create food Successfully", "Create food information");
+                ClearCreate();
                 loaddataMenu();
             }
         }

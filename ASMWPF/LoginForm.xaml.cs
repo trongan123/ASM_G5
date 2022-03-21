@@ -78,7 +78,7 @@ namespace ASMWPF
 
                 if ((khachHang.Role.Equals("User") || khachHang.Role.Equals("Admin")) && khachHang.Tt.Equals(0))
                 {
-                    MessageBox.Show("Sorry but your account has been blocked",, "Login");
+                    MessageBox.Show("Sorry but your account has been blocked", "Login");
                 }
             }
             else if (username.Equals("") || password.Equals(""))
