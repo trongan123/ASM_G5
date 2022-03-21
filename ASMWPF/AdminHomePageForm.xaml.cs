@@ -1,6 +1,9 @@
 ﻿using ASMLibrary.DataAccess;
 using ASMLibrary.Management.Sevice;
+using Ganss.Excel;
+using Microsoft.Office.Interop.Excel;
 using Microsoft.Win32;
+using Syncfusion.XlsIO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,13 +18,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Button = System.Windows.Controls.Button;
 
 namespace ASMWPF
 {
     /// <summary>
     /// Interaction logic for AdminHomePageForm.xaml
     /// </summary>
-    public partial class AdminHomePageForm : Window
+    public partial class AdminHomePageForm : System.Windows.Window
     {
         public KhachHang admin;
         MonAnService monAnService = new MonAnService();
@@ -205,7 +209,7 @@ namespace ASMWPF
 
         private void btnUpdateAcc_Click(object sender, RoutedEventArgs e)
         {
-
+            loaddataACC();
         }
 
         private void btndeleteAcc_Click(object sender, RoutedEventArgs e)
@@ -231,6 +235,30 @@ namespace ASMWPF
                 }
 
             }
+        }
+
+        private void btnExportOrder_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ExcelMapper mapper = new ExcelMapper();
+                var location = @"OrderFile.xlsx";
+                mapper.Save(location, donHangs, "SheetName", true);
+                MessageBox.Show("Exported");
+            }
+            catch (Exception ex) { MessageBox.Show("Failed"); }
+        }
+
+        private void btnExportAccount_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ExcelMapper mapper = new ExcelMapper();
+                var location = @"AccountFile.xlsx";
+                mapper.Save(location, khachHangs, "SheetName", true);
+                MessageBox.Show("Exported");
+            }
+            catch (Exception ex) { MessageBox.Show("Failed"); }
         }
     }
     public class dataDonHang

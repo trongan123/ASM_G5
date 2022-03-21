@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ASMWPF"
         mc:Ignorable="d"
-        Title="AdminHomePageForm" Height="479" Width="682" ResizeMode="NoResize"
+        Title="AdminHomePageForm" Height="482" Width="726" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl>
@@ -70,7 +70,7 @@
                         <ColumnDefinition Width="37*"/>
                         <ColumnDefinition Width="639*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnExportAccount" Content="" Margin="584,6,0,0" Foreground="White" BorderBrush="Black" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34" Grid.Column="1">
+                    <Button x:Name="btnExportAccount" Content="" Margin="584,6,0,0" Foreground="White" BorderBrush="Black" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34" Grid.Column="1" Click="btnExportAccount_Click">
                         <Button.Template>
                             <ControlTemplate>
                                 <Image Source="/images/export.png"/>
@@ -92,15 +92,15 @@
                         </ItemsControl.ItemsPanel>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <UniformGrid Columns="7" Width="670" >
+                                <UniformGrid Columns="7" Width="710" >
                                     <TextBlock Text="{Binding Username}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <!--<TextBlock Text="{Binding Password}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                                     <TextBlock Text="{Binding HotenKh}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding DiachiKh}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding Sdtkh}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <TextBlock Text="{Binding MailKh}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <Button x:Name="btnUpdateAcc"  Content="Update" Width="100" Height="30" Click="btnUpdateAcc_Click"/>
-                                    <Button x:Name="btndeleteAcc"  Content="Delete" Width="100" Height="30" Click="btndeleteAcc_Click"/>
+                                    <Button x:Name="btnUpdateAcc"  Content="Update" Width="80" Height="30" Click="btnUpdateAcc_Click"/>
+                                    <Button x:Name="btndeleteAcc"  Content="Delete" Width="80" Height="30" Click="btndeleteAcc_Click"/>
 
                                 </UniformGrid>
                             </DataTemplate>
@@ -110,7 +110,7 @@
             </TabItem>
             <TabItem Header="Order" Margin="105,-2,-140,-14">
                 <Grid Height="412" Background="#FFD8D8D8">
-                    <Button x:Name="btnExportOrder" Content="" Margin="621,6,0,0" Foreground="White" BorderBrush="Black" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34">
+                    <Button x:Name="btnExportOrder" Content="" Margin="621,6,0,0" Foreground="White" BorderBrush="Black" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34" Click="btnExportOrder_Click">
                         <Button.Template>
                             <ControlTemplate>
                                 <Image Source="/images/export.png"/>
@@ -133,13 +133,13 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <UniformGrid Columns="7" Width="670" >
-                                    <TextBlock Text="{Binding IddonHang}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Diachi}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Sdt}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding ThoiGian}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding TongTien}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                   
+                                    <TextBlock x:Name="tbIdDonHang" Text="{Binding IddonHang}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="tbName" Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="tbDiaChi" Text="{Binding Diachi}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="tbSdt" Text="{Binding Sdt}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="tbThoiGian" Text="{Binding ThoiGian}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="tbTongTien" Text="{Binding TongTien}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
                                     <Button x:Name="btndeleteAcc"  Content="Delete" Width="100" Height="30" Click="btndeleteAcc_Click"/>
 
                                 </UniformGrid>
